@@ -13,13 +13,14 @@ def borrow_book():
         bookID = request.form["bookID"]
         studentID = session["userid"]
 
-        # Create borrow record
+        
         BorrowRecord.create(studentID, bookID)
 
-        # Update book status to borrowed
+        
         Book.update_status(bookID, "borrowed")
 
         return redirect("/user/dashboard")
 
     books = Book.get_all()
     return render_template("borrow/borrow.html", books=books)
+
