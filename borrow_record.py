@@ -38,9 +38,10 @@ class BorrowRecord:
         with open(BorrowRecord.file, "r") as f:
             for row in csv.reader(f):
                 if row[0] == recordID:
-                    row[4] = today  # set returnDate
+                    row[4] = today  
                 rows.append(row)
 
         with open(BorrowRecord.file, "w", newline="") as f:
             writer = csv.writer(f)
             writer.writerows(rows)
+
