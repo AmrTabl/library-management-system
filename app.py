@@ -5,19 +5,14 @@ from controllers.borrow_controller import borrow_bp
 from controllers.return_controller import return_bp
 
 app = Flask(__name__)
-app.secret_key = "lms_secret_123"  # needed for session login
+app.secret_key = "lms_secret_123"
 
-# ===========================
-# REGISTER CONTROLLERS (MVC)
-# ===========================
 app.register_blueprint(user_bp)
 app.register_blueprint(book_bp)
 app.register_blueprint(borrow_bp)
 app.register_blueprint(return_bp)
 
-# ===========================
-# HOME PAGE
-# ===========================
+
 @app.route("/")
 def home():
     return """
@@ -26,8 +21,6 @@ def home():
         <p><a href='/user/register'>Register</a></p>
     """
 
-# ===========================
-# RUN APP
-# ===========================
 if __name__ == "__main__":
     app.run(debug=True)
+
