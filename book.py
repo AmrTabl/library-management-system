@@ -8,8 +8,7 @@ class Book:
         self.title = title
         self.author = author
         self.categoryID = categoryID
-        self.status = status  # "available" / "borrowed"
-
+        self.status = status
     @staticmethod
     def get_all():
         books = []
@@ -24,7 +23,7 @@ class Book:
         results = []
         with open(Book.file, "r") as f:
             for row in csv.reader(f):
-                if row and query.lower() in row[1].lower():  # row[1] = title
+                if row and query.lower() in row[1].lower():
                     results.append(Book(*row))
         return results
 
@@ -40,3 +39,4 @@ class Book:
         with open(Book.file, "w", newline="") as f:
             writer = csv.writer(f)
             writer.writerows(rows)
+
