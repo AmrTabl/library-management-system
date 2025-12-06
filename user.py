@@ -21,7 +21,6 @@ class User:
 
     @staticmethod
     def register(name, email, password, role="student"):
-        # automatically assign userid = number of records + 1
         all_users = User.get_all()
         userid = len(all_users) + 1
 
@@ -36,3 +35,4 @@ class User:
                 if row and row[2] == email and row[3] == password:
                     return User(*row)
         return None
+
