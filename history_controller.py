@@ -15,3 +15,4 @@ def view_history():
 
     return render_template("user/history.html", records=records)
 
+
