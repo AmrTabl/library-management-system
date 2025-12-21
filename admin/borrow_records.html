@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Borrow Records</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2 style="text-align:center;">All Borrow Records (Admin)</h2>
+
+{% if records %}
+<table border="1" cellpadding="6" style="margin:auto;">
+    <tr>
+        <th>Record ID</th>
+        <th>Student ID</th>
+        <th>Book ID</th>
+        <th>Borrow Date</th>
+        <th>Return Date</th>
+    </tr>
+
+    {% for r in records %}
+    <tr>
+        <td>{{ r.recordID }}</td>
+        <td>{{ r.studentID }}</td>
+        <td>{{ r.bookID }}</td>
+        <td>{{ r.borrowDate }}</td>
+        <td>{{ r.returnDate if r.returnDate else "Not Returned" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p style="text-align:center;">No borrow records found.</p>
+{% endif %}
+
+</body>
+</html>
